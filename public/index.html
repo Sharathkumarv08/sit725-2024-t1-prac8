@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Connection</title>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+</div>
+
+<!-- Image -->
+<img src="logo.svg" alt="Image" style="display: block; margin: 20px auto; width: 200px; height: auto;">
+
+<!-- Cards -->
+<div style="display: flex; justify-content: center;">
+    <div class="card">
+        <div class="container">
+            <h4><b>UNIT 1</b></h4>
+            <p>SIT725 - APPLIED SOFTWARE ENGINEERING</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="container">
+            <h4><b>UNIT 2</b></h4>
+            <p>SIT718 - Real World Analytics</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="container">
+            <h4><b>UNIT 3</b></h4>
+            <p>MIS770 - Value of Information</p>
+        </div>
+    </div>
+</div>
+
+<!-- Form -->
+<div style="text-align: center; margin-top: 20px;">
+    <form id="courseForm" method="post" action="http://localhost:3000/submit">
+        <div class="container">
+            <label for="unit">Select Unit:</label>
+            <select id="unit" name="unit">
+                <option value="SIT725">SIT725 - APPLIED SOFTWARE ENGINEERING</option>
+                <option value="SIT719">SIT718 - Real World Analytics</option>
+                <option value="SIT740">MIS770 - Value of Information</option>
+            </select>
+            <button type="submit" class="button">Submit</button>
+        </div>
+    </form>
+</div>
+
+<!-- Adding Socket.io script -->
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io();
+
+    socket.on('welcome', function(data) {
+        console.log(data);
+        alert(data);  
+    });
+</script>
+
+
+</body>
+</html>
